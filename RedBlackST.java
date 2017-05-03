@@ -83,7 +83,6 @@ class RBST<Key extends Comparable, Value> {
     }
     
     // insert and search methods
-    
     public void put(Key k, Value v) {
         root = put(root, k, v);
         root.color = BLACK;
@@ -111,7 +110,7 @@ class RBST<Key extends Comparable, Value> {
         int cmp = k.compareTo(h.key);
         if(cmp < 0) return get(h.left, k);
         else if(cmp > 0) return get(h.right, k);
-        else return (Value) h.val;                      // generics issue
+        else return (Value) h.val;                      
     }
     
     public void printKeys() {
@@ -267,26 +266,14 @@ class RBST<Key extends Comparable, Value> {
 
 public class RedBlackST {
     public static void main(String[] args) {
+        
         RBST<Integer, Integer> st = new RBST<>();
-        
-        /*Integer ints[] = new Integer[60];
-        for(int i=0; i<60; i++)
-            ints[i] = (i+1);
-        
-        RBST.shuffle(ints);
-        
-        System.out.println("Randomly adding keys 1-60");
-        for(Integer x : ints) st.put(x, x);*/
         
         System.out.println("Adding keys 1-60...");
         for(int i=1; i<61; i++)
             st.put(i,0);
         
         st.printKeys();
-        
-        /*System.out.println("deleting 31");
-        st.delete(31);
-        st.printKeys();*/
         
         try { Thread.sleep(5000); } catch(InterruptedException exc) {}  // pause
         
